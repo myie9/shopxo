@@ -282,19 +282,19 @@ class GoodsService
             // 开始处理数据
             foreach($data as &$v)
             {
-                // 商品处理前钩子
-                $hook_name = 'plugins_service_goods_handle_begin';
-                $ret = HookReturnHandle(Hook::listen($hook_name, [
-                    'hook_name'     => $hook_name,
-                    'is_backend'    => true,
-                    'params'        => &$params,
-                    'goods'         => &$v,
-                    'goods_id'      => isset($v['id']) ? $v['id'] : 0,
-                ]));
-                if(isset($ret['code']) && $ret['code'] != 0)
-                {
-                    return $ret;
-                }
+                // // 商品处理前钩子
+                // $hook_name = 'plugins_service_goods_handle_begin';
+                // $ret = HookReturnHandle(Hook::listen($hook_name, [
+                //     'hook_name'     => $hook_name,
+                //     'is_backend'    => true,
+                //     'params'        => &$params,
+                //     'goods'         => &$v,
+                //     'goods_id'      => isset($v['id']) ? $v['id'] : 0,
+                // ]));
+                // if(isset($ret['code']) && $ret['code'] != 0)
+                // {
+                //     return $ret;
+                // }
 
                 // 商品价格容器
                 $v['price_container'] = [
@@ -425,19 +425,19 @@ class GoodsService
                 $v['show_field_original_price_text'] = '原价';
                 $v['show_field_price_text'] = '销售价';
 
-                // 商品处理后钩子
-                $hook_name = 'plugins_service_goods_handle_end';
-                $ret = HookReturnHandle(Hook::listen($hook_name, [
-                    'hook_name'     => $hook_name,
-                    'is_backend'    => true,
-                    'params'        => &$params,
-                    'goods'         => &$v,
-                    'goods_id'      => isset($v['id']) ? $v['id'] : 0,
-                ]));
-                if(isset($ret['code']) && $ret['code'] != 0)
-                {
-                    return $ret;
-                }
+                // // 商品处理后钩子
+                // $hook_name = 'plugins_service_goods_handle_end';
+                // $ret = HookReturnHandle(Hook::listen($hook_name, [
+                //     'hook_name'     => $hook_name,
+                //     'is_backend'    => true,
+                //     'params'        => &$params,
+                //     'goods'         => &$v,
+                //     'goods_id'      => isset($v['id']) ? $v['id'] : 0,
+                // ]));
+                // if(isset($ret['code']) && $ret['code'] != 0)
+                // {
+                //     return $ret;
+                // }
             }
         }
         return DataReturn('处理成功', 0, $data);
